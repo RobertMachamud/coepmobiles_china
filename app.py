@@ -4,8 +4,8 @@ import random
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
-from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_pymongo import PyMongo
 if os.path.exists("env.py"):
     import env
 
@@ -21,10 +21,11 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def produkte():
-    produkte = list(mongo.db.produkte.find())
-    categories = list(mongo.db.categories.find())
-    return render_template("index.html", produkte=produkte,
-                           categories=categories)
+    # produkte = list(mongo.db.produkte.find())
+    # categories = list(mongo.db.categories.find())
+    # return render_template("index.html", produkte=produkte,
+    #                        categories=categories)
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
