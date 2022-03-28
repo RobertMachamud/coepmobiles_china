@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+        {% for produkt in produkte %}
+            <p>{{ produkt["marke"] }} {{ produkt["modell"] }} -- {{ produkt["technische_daten"]["motor"] }}</p>
+        {% endfor %}
+
+        
     <div class="main-cont">
         <!-- Header -->
         <header>
