@@ -15,16 +15,6 @@ const aboutCont = document.querySelector("#about-us-cont");
 const showMoreBtn = document.querySelector(".show-more-bttn");
 const memberAboutUs = document.querySelector(".about-us-box.opened");
 const textAboutUs = document.querySelector(".about-us-box.closed");
-    
-// Data Boxes Container
-const technDataCont = document.querySelector(".popup-main-data-cont.car");
-const sizeDataCont = document.querySelector(".popup-main-data-cont.size");
-const beschrDataCont = document.querySelector(".popup-main-data-cont.beschr");
-
-// Data Boxes
-const technDatenSize = document.querySelector(".technische-daten.size");
-const technDatenData = document.querySelector(".technische-daten.daten");
-const technDatenBeschr = document.querySelector(".technische-daten.beschr");
 
 // Slide-Menu open/closed
 let slideMenuOpen = false;
@@ -77,3 +67,50 @@ function scrollToTop() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }   
+
+
+// ---------------------------------------------------- FILTER BY CAR TYPE
+        
+// Filter Produkte By Car Category
+const filterProdukte = (e, category) => {
+    let allProductCards = document.querySelectorAll(".card-wrapper");
+    
+    // removes all d-none classes (reveals all cards)
+    const revealAllCards = () => [...allProductCards].forEach(pc => pc.classList.remove("d-none"));
+    
+    // Changes all Icon imgs to black
+    const turnAllIconsBlack = () => {
+        let allIconImgs = document.querySelectorAll(".p-filter img");
+        allIconImgs.forEach(fi => {
+            if (fi.classList.contains("red")) {
+                fi.classList.add("d-none");
+            } else {
+                fi.classList.remove("d-none");
+            } 
+        });
+    }
+    
+    // Changes clicked icon to red
+    const turnClickedIconRed = () => {
+        let filterIcons = e.target.parentElement.children;
+        [...filterIcons].forEach(fi => fi.classList.toggle("d-none"));
+    }   
+    
+    revealAllCards();
+    turnAllIconsBlack();
+                
+    // returns funciton if user selects same icon that is active
+    if (selectedFilterCategory === category) {
+        selectedFilterCategory = null;
+        return;
+    } else {
+        turnClickedIconRed();
+        selectedFilterCategory = category;
+
+        // all cards not including the filtered category
+        let filteredCards = [...allProductCards].filter(c=> c.dataset.category !== category);
+
+        // makes outfiltered cards invisible
+        [...filteredCards].forEach(fc => fc.classList.add("d-none"));
+    }
+}
