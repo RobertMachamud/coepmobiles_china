@@ -116,7 +116,6 @@ const allSliderImgs = document.querySelectorAll(".img-arrow-slider-cont img");
 
 function selectImg() { 
     document.querySelector(".main-img img").src = this.src;  
-    console.log("helloooooooo",  this.src)
 }
 
 
@@ -134,7 +133,6 @@ const imgSlider = (n) => {
     
     // 
     imgIndex = imgIndex + n;
-    console.log("INDEEEEXXXXX", imgIndex);
     if (imgIndex > amtImgs) {
         imgIndex = 0;
     } else if (imgIndex < 0) {

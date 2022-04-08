@@ -15,6 +15,7 @@ app = Flask(__name__)
 # app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 # app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 # app.secret_key = os.environ.get("SECRET_KEY")
+# pip3 install "pymongo[srv]"
 
 app.config["MONGO_DBNAME"] = "coep_cars"
 app.config["MONGO_URI"] = "mongodb+srv://robertTheUser:r00tUser@myfirstcluster.3kydg.mongodb.net/coep_cars?retryWrites=true&w=majority"
@@ -30,9 +31,11 @@ def index():
     return render_template("index.html", produkte=produkte)
 
 
-@app.route("/produkt")
-def produkt():
-    return render_template("produkt.html")
+@app.route("/produkt/<produkt_id>")
+def produkt(produkt_id):
+    produkt = mongo.db.cars.find_one({"_id": ObjectId(produkt_id)})
+    return render_template(
+        "produkt.html", produkt=produkt)
 
 
 if __name__ == "__main__":

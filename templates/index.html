@@ -18,9 +18,9 @@
                 <nav>
                     <ul class="navs">
                         <li class="nr"><a href="tel:+49302787910"><i class="fas fa-phone-alt"></i> 030-278791-0</a></li>
-                        <li><a href="#home-bg">Home</a></li>
-                        <li><a href="#products-cont">Über Uns</a></li>
-                        <li><a href="#uber">Produkte</a></li>
+                        <li><a href="#top-space">Home</a></li>
+                        <li><a href="#about-us-cont">Über Uns</a></li>
+                        <li><a href="#produkte-headl">Produkte</a></li>
                         <li><a href="#footer">Kontakt / Info</a></li>
                     </ul>
                 </nav>
@@ -53,39 +53,50 @@
             <nav>
                 <ul>
                     <li onclick="toggleSlideInMenu()">
-                        <a href="#home-bg">
-                            <i class="fas fa-home"></i>
+                        <a href="#top-space">
+                            <div class="menu-icon">
+                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1648836497/thumbnail_18_h8jsux.png" alt="">
+                            </div>
                             <span>HOME</span>
                         </a>
                     </li>
                     <li onclick="toggleSlideInMenu()">
-                        <a href="#products-cont">
-                            <i class="fas fa-home"></i>
+                        <a href="#about-us-cont">
+                            <div class="menu-icon">
+                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1648836492/thumbnail_20_b7ae58.png" alt="">
+                            </div>
                             <span>Über Uns</span>
                         </a>
                     </li>
                     <li onclick="toggleSlideInMenu()">
-                        <a href="#uber">
-                            <i class="fas fa-home"></i>
+                        <a href="#produkte-headl">
+                            <div class="menu-icon">
+                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1648836494/thumbnail_19_lo280k.png" alt="">
+                            </div>
                             <span>Produkte</span>
                         </a>
                     </li>
                     <li onclick="toggleSlideInMenu()">
                         <a href="#footer">
-                            <i class="fas fa-home"></i>
+                            <div class="menu-icon">
+                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1648836522/thumbnail_15_fl7pa4.png" alt="">
+                            </div>
                             <span>Kontakt / Info</span>
                         </a>
                     </li>
                     <li onclick="toggleSlideInMenu()">
-                        <a href="#">
-                            <i class="fas fa-home"></i>
-                            <span>HOME</span>
+                        <a href="tel:+49302787910">
+                            <div class="menu-icon">
+                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1648836515/thumbnail_16_zwq2up.png" alt="">
+                            </div>
+                            <span>Telefon</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
         <!-- Home Screen Container -->
+        <div class="top-space"></div>
         <div class="home-cont flex-center">
             <div id="home-bg"></div>
             <div class="container">
@@ -203,11 +214,11 @@
                         </div>
                         <!-- Toggle About Container BUTTON -->
                         <div onclick="toggleAboutCont()" class="show-more-bttn redish-color flex-center">
-                            <i class="fas redish-color fa-chevron-right"></i>
+                            <i class="about fas redish-color fa-chevron-right"></i>
                         </div>
                     </div>
                 </div>
-                <h2 id="uber" class="produkte-headl redish-color">PRODUKTÜBERSICHT</h2>
+                <h2 id="uber" id="produkte-headl" class="produkte-headl redish-color">PRODUKTÜBERSICHT</h2>
                 <!-- Produkt Filter Container -->
                 <div class="product-filter-cont">
                     <div class="filtern-nach">Filtern nach: </div>
@@ -230,10 +241,10 @@
                                 alt="activated lkw filter icon" class="d-none red">
                         </div>
                         <div class="p-filter elektro">
-                            <img onclick="filterProdukte(event, 'electro')"
+                            <img onclick="filterProdukte(event, 'elektro')"
                                 src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1646701231/thumbnail_11_frvxto.png"
                                 alt="elektro filter icon">
-                            <img onclick="filterProdukte(event, 'electro')"
+                            <img onclick="filterProdukte(event, 'elektro')"
                                 src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1646701234/thumbnail_10_xrya8o.png"
                                 alt="activated elektro filter icon" class="d-none red">
                         </div>
@@ -242,233 +253,43 @@
                 <!-- Produkte -->
                 <div id="produkte">
                     <!-- Car/Produkt Card -->
-                    <div data-category="suv" class="card-wrapper" data-aos="fade-up" data-aos-delay="0"
+
+
+
+                    {% for produkt in produkte %}
+
+                        <div data-category="{{ produkt['kategorie'] }}" class="card-wrapper" data-aos="fade-up" data-aos-delay="0"
                         data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="{{ url_for('produkt') }}" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/Fengon-3_v4azac.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK - Fengon 580 Intelligent</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
+                            <div class="card">
+                                <div class="card-img-top">
+                                    <a href="{{ url_for('produkt', produkt_id=produkt._id) }}" class="produkt-img-link"></a>
+                                    <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/Fengon-3_v4azac.jpg"
+                                        alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">DFSK - {{ produkt['modell'] }}</h5>
+                                    <p class="card-text">
+                                        {{ produkt['technische_daten']['leistung'] }} | {{ produkt['technische_daten']['kraftstoffart'] }} | {{ produkt['technische_daten']['verbrauch'] }} <br>
+                                        {{ produkt['technische_daten']['co2_emission'] }} | {{ produkt['technische_daten']['leergewicht'] }} | {{ produkt['technische_daten']['höchstgeschwindigkeit'] }}
+                                    </p>
 
-                                <p>Lieferzeit ca. 4 Monate</p>
+                                    <p>Lieferzeit ca. 4 Monate</p>
 
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
-
-
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-category="lkw" class="card-wrapper" data-aos="fade-up" data-aos-delay="100"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/Fengon-3_v4azac.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
+                                    <h4 class="price redish-color">ab {{ produkt['price'] }} <span class="eur">EUR</span></h4>
+                                    <p class="redish-color">zzgl. 19% MwSt. und Fracht *</p>
 
 
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
+                                    <a href="{{ url_for('produkt', produkt_id=produkt._id) }}" class="btn produkt-bttn">Zum Produkt</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div data-category="suv" class="card-wrapper" data-aos="fade-up" data-aos-delay="0"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649243/EC31_amb4q3.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
+                    {% endfor %}
 
 
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-category="electro" class="card-wrapper" data-aos="fade-up" data-aos-delay="100"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649240/C35_0_kiiz9x.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
 
 
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-category="lkw" class="card-wrapper" data-aos="fade-up" data-aos-delay="0"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649246/fengon580-2-_hxyzua.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
-
-
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-category="suv" class="card-wrapper" data-aos="fade-up" data-aos-delay="100"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/dfsk-fengon-580_upvnt4.png"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
-
-
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-category="electro" class="card-wrapper" data-aos="fade-up" data-aos-delay="0"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649240/c31-3_ls5kjg.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
-
-
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-category="suv" class="card-wrapper" data-aos="fade-up" data-aos-delay="100"
-                        data-aos-duration="300">
-                        <div class="card">
-                            <div class="card-img-top">
-                                <a href="" class="produkt-img-link"></a>
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649243/dsci0397_f9gcwr.jpg"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">
-                                    86 kW / 155 PS | Benzin | 9,9 L (komb.) <br>
-                                    224 g/Km | 1665 kg | 180 km/h
-                                </p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
-
-
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-wrapper" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300">
-                        <div class="card">
-                            <img class="card-img-top"
-                                src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1640964803/pexels-jonas-f-6755280_mx3ce8.jpg"
-                                alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">DFSK Fengon 5</h5>
-                                <p class="card-text">Some quick example text build <br>to on the card build frtij titl</p>
-
-                                <p>Lieferzeit ca. 4 Monate</p>
-
-                                <h4 class="price redish-color">ab 13.754,00 <span class="eur">EUR</span></h4>
-                                <p class="redish-color">inkl. 19% MwSt. zzgl. Versandt *</p>
-
-
-                                <a href="#" class="btn produkt-bttn">Zum Produkt</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
