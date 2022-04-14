@@ -263,7 +263,7 @@
                             <div class="card">
                                 <div class="card-img-top">
                                     <a href="{{ url_for('produkt', produkt_id=produkt._id) }}" class="produkt-img-link"></a>
-                                    <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/Fengon-3_v4azac.jpg"
+                                    <img src="{{ produkt['bilder'][0] }}"
                                         alt="Card image cap">
                                 </div>
                                 <div class="card-body">

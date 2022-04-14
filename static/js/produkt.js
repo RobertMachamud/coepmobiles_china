@@ -4,15 +4,15 @@
 const popupWindow = document.querySelector(".popup-window");
 
 // Icons Arrow/Cross (Data Boxes)
-const iconBoxArrow = document.querySelector(".icon-box-arrow");
-const iconBoxCross = document.querySelector(".icon-box-cross");
+const iconBoxArrowTe = document.querySelector(".icon-box-arrow.tech");
+const iconBoxCrossTe = document.querySelector(".icon-box-cross.tech");
 const iconBoxArrowSz = document.querySelector(".icon-box-arrow.size");
 const iconBoxCrossSz = document.querySelector(".icon-box-cross.size");
 const iconBoxArrowBe = document.querySelector(".icon-box-arrow.beschr");
 const iconBoxCrossBe = document.querySelector(".icon-box-cross.beschr");
 
 // Data Boxes Container
-const technDataCont = document.querySelector(".popup-main-data-cont.car");
+const technDataCont = document.querySelector(".popup-main-data-cont.tech");
 const sizeDataCont = document.querySelector(".popup-main-data-cont.size");
 const beschrDataCont = document.querySelector(".popup-main-data-cont.beschr");
 
@@ -22,12 +22,12 @@ const technDatenData = document.querySelector(".technische-daten.daten");
 const technDatenBeschr = document.querySelector(".technische-daten.beschr");
 
 // Animated Icon (Slides To Right) - Data Boxes
-const iconToAnimate = document.querySelector(".daten-icon img");
+const iconToAnimateTe = document.querySelector(".daten-icon.tech img");
 const iconToAnimateSz = document.querySelector(".daten-icon.size img");
 const iconToAnimateBe = document.querySelector(".daten-icon.beschr img");
 
 // Icons (Data Boxes - Lines, Car, 4Arrows)
-const dataIconCar = document.querySelector(".daten-icon.car");
+const dataIconTech = document.querySelector(".daten-icon.tech");
 const dataIconSize = document.querySelector(".daten-icon.size");
 const dataIconBeschr = document.querySelector(".daten-icon.beschr");
 
@@ -37,7 +37,7 @@ const slideInDataSize = document.querySelector(".slide-in-data.size");
 const slideInDataBeschr = document.querySelector(".slide-in-data.beschr");
 
 // Hidden Icons (Data Boxes)
-const hiddenIconCar = document.querySelector(".popup-car-data img.hidden.car");
+const hiddenIconTech = document.querySelector(".popup-car-data img.hidden.tech");
 const hiddenIconSize = document.querySelector(".popup-size-data img.hidden.size");
 const hiddenIconBeschr = document.querySelector(".popup-beschr-data img.hidden.beschr");
 
@@ -47,16 +47,16 @@ const hiddenIconBeschr = document.querySelector(".popup-beschr-data img.hidden.b
 // Toggles Technische Daten Container
 const toggleTechnischeDatenCont = () => {
     // toggles arrow/cross icon
-    iconBoxArrow.classList.toggle("invisible");
-    iconBoxCross.classList.toggle("invisible");
+    iconBoxArrowTe.classList.toggle("invisible");
+    iconBoxCrossTe.classList.toggle("invisible");
     // toggles extension for data cont
     technDataCont.classList.toggle("extended");
-    iconToAnimate.classList.toggle("icon-ani");
+    iconToAnimateTe.classList.toggle("icon-ani");
     technDatenData.classList.toggle("collapsed");
-    dataIconCar.classList.toggle("invisible");
+    dataIconTech.classList.toggle("invisible");
     // 
     slideInDataTech.classList.toggle("slide-in");
-    hiddenIconCar.classList.toggle("slide-in");
+    hiddenIconTech.classList.toggle("slide-in");
 }
 
 

@@ -13,7 +13,7 @@
                                 <i class="fas fa-times redish-color"></i>
                             </div>
                             <div class="main-img flex-centered">
-                                <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642574167/DSCI2160_encpxm.jpg"
+                                <img src="{{ produkt['bilder'][0] }}"
                                     alt="">
                             </div>
                             <div class="sub-img-cont flex-centered">
@@ -27,25 +27,6 @@
 
                                 {% endfor %}
                                 
-                                <!-- <img class="sub-img"
-                                    src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649246/pic213_0_hixzhb.jpg"
-                                    alt=""> -->
-                                    
-                                <!-- <img class="sub-img"
-                                    src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649245/Fengon500-Seite_co6cvk.jpg"
-                                    alt="">
-                                <img class="sub-img"
-                                    src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649246/Glory580-5_ak1k2p.jpg"
-                                    alt="">
-                                <img class="sub-img"
-                                    src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/Fengon-3_v4azac.jpg"
-                                    alt="">
-                                <img class="sub-img"
-                                    src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649244/Fengon500-innen2_r3xexd.jpg"
-                                    alt="">
-                                <img class="sub-img"
-                                    src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649240/C35_0_kiiz9x.jpg"
-                                    alt=""> -->
                             </div>
                         </div>
                     </div>
@@ -67,26 +48,13 @@
                         </div>
                         <!-- Image -->
                         <div class="img-arrow-slider-cont" onclick="toggleImgPopupWindow()">
+                            
+                            {% set images = produkt['bilder'] %}
+                                {% for image in images %}
 
-                            <img data-index="2"
-                                src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1641708079/Fengon-3_qrdt27.jpg"
-                                alt="">
+                                <img src="{{ image }}" alt="">
 
-                            <img class="selected" data-index="0"
-                                src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642574167/DSCI2160_encpxm.jpg"
-                                alt="">
-
-                            <img data-index="3"
-                                src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1646494028/image0_2_dnls6z.jpg"
-                                alt="">
-
-                            <img data-index="1"
-                                src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1640964803/pexels-jonas-f-6755280_mx3ce8.jpg"
-                                alt="">
-
-                            <img data-index="4"
-                                src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642649247/pic215_bo9i3m.jpg"
-                                alt="">
+                            {% endfor %}
 
                         </div>
                     </div>
@@ -223,24 +191,24 @@
                 </div>
 
 
-                <div class="popup-main-data-cont car">
+                <div class="popup-main-data-cont tech">
                     <!-- Car Data -->
                     <div class="popup-car-data data-box">
                         <div onclick="toggleTechnischeDatenCont()" class="data-headl-cont">
                             <h5 class="redish-color">TECHN<span class="not- v2">ISCHE</span> DATEN</h5>
                             <!-- Extend Car Data Box Button -->
                             <div class="open-t-daten-btn flex-center">
-                                <i class="icon-box-arrow fas fa-chevron-right"></i>
-                                <i class="icon-box-cross fas fa-times invisible"></i>
+                                <i class="icon-box-arrow tech fas fa-chevron-right"></i>
+                                <i class="icon-box-cross tech fas fa-times invisible"></i>
                             </div>
 
                         </div>
-                        <div class="daten-icon car">
+                        <div class="daten-icon tech">
                             <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642452500/thumbnail_dfhs8a.png"
-                                alt="car icon">
+                                alt="tech icon">
                         </div>
                         <div class="technische-daten daten collapsed">
-                            <img class="hidden car"
+                            <img class="hidden tech"
                                 src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642452500/thumbnail_dfhs8a.png"
                                 alt="car icon">
                             <div class="slide-in-data tech">

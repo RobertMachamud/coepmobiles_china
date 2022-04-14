@@ -12,12 +12,13 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
-# app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 # app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 # app.secret_key = os.environ.get("SECRET_KEY")
 # pip3 install "pymongo[srv]"
+# pip3 install python-dotenv
 
-app.config["MONGO_DBNAME"] = "coep_cars"
+# app.config["MONGO_DBNAME"] = "coep_cars"
 app.config["MONGO_URI"] = "mongodb+srv://robertTheUser:r00tUser@myfirstcluster.3kydg.mongodb.net/coep_cars?retryWrites=true&w=majority"
 app.secret_key = "rqP+bGT)p[kK<OBi5[Ph?6G(fqHte?"
 
