@@ -49,12 +49,12 @@ const toggleTechnischeDatenCont = () => {
     // toggles arrow/cross icon
     iconBoxArrowTe.classList.toggle("invisible");
     iconBoxCrossTe.classList.toggle("invisible");
-    // toggles extension for data cont
+    // toggles extension & animates icon
     technDataCont.classList.toggle("extended");
     iconToAnimateTe.classList.toggle("icon-ani");
     technDatenData.classList.toggle("collapsed");
     dataIconTech.classList.toggle("invisible");
-    // 
+    // slides in the hidden content & icon
     slideInDataTech.classList.toggle("slide-in");
     hiddenIconTech.classList.toggle("slide-in");
 }
@@ -65,12 +65,12 @@ const toggleSizeDatenCont = () => {
     // toggles arrow/cross icon
     iconBoxArrowSz.classList.toggle("invisible");
     iconBoxCrossSz.classList.toggle("invisible");
-    // toggles extension for data cont
+    // toggles extension & animates icon
     sizeDataCont.classList.toggle("extended");
     iconToAnimateSz.classList.toggle("icon-ani");
     technDatenSize.classList.toggle("collapsed");
     dataIconSize.classList.toggle("invisible");
-    
+    // slides in the hidden content & icon
     slideInDataSize.classList.toggle("slide-in");
     hiddenIconSize.classList.toggle("slide-in");
 }
@@ -81,12 +81,12 @@ const toggleBeschrDatenCont = () => {
     // toggles arrow/cross icon
     iconBoxArrowBe.classList.toggle("invisible");
     iconBoxCrossBe.classList.toggle("invisible");
-    // toggles extension for data cont
+    // toggles extension & animates icon
     beschrDataCont.classList.toggle("extended");
     iconToAnimateBe.classList.toggle("icon-ani");
     technDatenBeschr.classList.toggle("collapsed");
     dataIconBeschr.classList.toggle("invisible");
-    
+    // slides in the hidden content & icon
     slideInDataBeschr.classList.toggle("slide-in");
     hiddenIconBeschr.classList.toggle("slide-in");
 }
@@ -101,8 +101,7 @@ const toggleImgPopupWindow = () => document.querySelector(".img-popup-window").c
 // All Clickable Sub Images
 const allSubImages = document.querySelectorAll(".sub-img");
 
-        
-// All Sub Images -> Changes Main Image by Clicking + active class
+// All Sub Images -> Changes Main Image by Clicking (adds active class)
 [...allSubImages].forEach(asi => asi.addEventListener("click", function() {
     [...allSubImages].forEach(i => i.classList.remove("active"));
     document.querySelector(".main-img img").src = this.src;
@@ -110,10 +109,11 @@ const allSubImages = document.querySelectorAll(".sub-img");
 }));
 
 
-// Select Image By Clicking On Slider Images 
+// Selects Image By Clicking On Slider Images 
 const allSliderImgs = document.querySelectorAll(".img-arrow-slider-cont img");
 [...allSliderImgs].forEach(asi => asi.addEventListener("click", selectImg));
 
+// Changes src of main image
 function selectImg() { 
     document.querySelector(".main-img img").src = this.src;  
 }
@@ -124,23 +124,42 @@ const imgPopupBg = document.querySelector(".img-popup-bg");
 imgPopupBg.addEventListener("click", toggleImgPopupWindow);
 
 
-// Image Slider
+// Image Slider !
 let imgIndex = 0;
 const allSlidingImgs = document.querySelectorAll(".img-arrow-slider-cont img");
 
+// Image Slider, depending on the input (1 (next) / -1 (prev))
 const imgSlider = (n) => {
     let amtImgs = allSlidingImgs.length - 1;
     
-    // 
+    // infinite loop
     imgIndex = imgIndex + n;
     if (imgIndex > amtImgs) {
         imgIndex = 0;
     } else if (imgIndex < 0) {
         imgIndex = amtImgs;
     }
-    //
+    // remoces selected class from all images
+    // adds selected class for selected image
     allSlidingImgs.forEach(asi => {
         asi.classList.remove("selected");
     });
     allSlidingImgs[imgIndex].classList.add("selected");
 }
+
+
+// Swiper Js initialization
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+    },
+    keyboard: true,
+    mousewheel: false,
+});

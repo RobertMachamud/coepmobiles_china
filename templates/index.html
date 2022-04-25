@@ -258,8 +258,7 @@
 
                     {% for produkt in produkte %}
 
-                        <div data-category="{{ produkt['kategorie'] }}" class="card-wrapper" data-aos="fade-up" data-aos-delay="0"
-                        data-aos-duration="300">
+                        <div data-category="{{ produkt['kategorie'] }}" class="card-wrapper">
                             <div class="card">
                                 <div class="card-img-top">
                                     <a href="{{ url_for('produkt', produkt_id=produkt._id) }}" class="produkt-img-link"></a>
@@ -286,10 +285,6 @@
 
                     {% endfor %}
 
-
-
-
-                    
                 </div>
             </div>
         </div>

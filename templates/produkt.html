@@ -5,28 +5,41 @@
         <!-- Popup Window -->
         <div class="popup-window">
             <div class="container main">
-                <div class="img-popup-window flex-centered  d-none">
+                <div class="img-popup-window flex-center  d-none">
                     <div class="img-popup-bg"></div>
                     <div class="container">
-                        <div class="img-popup-cont flex-centered">
+                        <!-- Image Container -->
+                        <div class="img-popup-cont flex-center">
                             <div onclick="toggleImgPopupWindow()" class="close-img-popup-btn">
                                 <i class="fas fa-times redish-color"></i>
                             </div>
-                            <div class="main-img flex-centered">
-                                <img src="{{ produkt['bilder'][0] }}"
-                                    alt="">
-                            </div>
-                            <div class="sub-img-cont flex-centered">
-
-                                {% set images = produkt['bilder'] %}
-                                {% for image in images %}
-
-                                    <img class="sub-img"
-                                    src="{{ image }}"
-                                    alt="product image">
-
-                                {% endfor %}
-                                
+                            <!-- Image Swiper -->
+                            <div class="container swipe">
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                            
+                                        {% set images = produkt['bilder'] %}
+                                        {% for image in images %}
+                            
+                                        <div class="swiper-slide">
+                                            <div onclick="toggleImgPopupWindow()" class="image__wrapper">
+                                                <img src="{{ image }}" alt="Product Image" />
+                                            </div>
+                                        </div>
+                            
+                                        {% endfor %}
+                            
+                                    </div>
+                                    <!-- Pagination Dots -->
+                                    <div class="swiper-pagination"></div>
+                                    <!-- Prev/Next Buttons -->
+                                    <div class="swiper-button-prev">
+                                        <i class="fa fa-angle-left redish-color"></i>
+                                    </div>
+                                    <div class="swiper-button-next">
+                                        <i class="fa fa-angle-right redish-color"></i>
+                                    </div>
+                                </div>                            
                             </div>
                         </div>
                     </div>
@@ -37,25 +50,35 @@
                 </h2>
                 <!-- Full Image Container -->
                 <div class="popup-image-cont">
-                    <!-- Image Box -->
-                    <div class="popup-image-box">
-                        <!-- Image Slider Buttons -->
-                        <div onclick="imgSlider(-1)" class="image-arrow arrow-l flex-center">
-                            <i class="fas fa-chevron-left redish-color"></i>
-                        </div>
-                        <div onclick="imgSlider(1)" class="image-arrow arrow-r flex-center">
-                            <i class="fas fa-chevron-right redish-color"></i>
-                        </div>
                         <!-- Image -->
-                        <div class="img-arrow-slider-cont" onclick="toggleImgPopupWindow()">
-                            
-                            {% set images = produkt['bilder'] %}
-                                {% for image in images %}
+                        <div class="img-arrow-slider-cont">
+                            <!-- Image Slider (Touch) - Swiper JS -->
+                            <div class="container swipe">
+                                <div class="swiper popup">
+                                <div class="swiper-wrapper">
 
-                                <img src="{{ image }}" alt="">
+                                    {% set images = produkt['bilder'] %}
+                                        {% for image in images %}
 
-                            {% endfor %}
+                                        <div class="swiper-slide">
+                                            <div onclick="toggleImgPopupWindow()" class="image__wrapper">
+                                                <img src="{{ image }}" alt="Product Image" />
+                                            </div>
+                                        </div>
 
+                                    {% endfor %}
+
+                                </div>
+                                <!-- Pagination Dots -->
+                                <div class="swiper-pagination"></div>
+                                <!-- Prev/Next Buttons -->
+                                <div class="swiper-button-prev">
+                                    <i class="fa fa-angle-left redish-color"></i>
+                                </div>
+                                <div class="swiper-button-next">
+                                    <i class="fa fa-angle-right redish-color"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Icon Data Container -->
@@ -133,8 +156,7 @@
                         <p>zzgl. 19% MwSt. und Versand *</p>
                     </div>
                 </div>
-                <!-- Car Data Boxes -->
-
+                <!-- Beschreibung Data Boxes -->
                 <div class="popup-main-data-cont beschr">
                     <!-- Car Data -->
                     <div class="popup-beschr-data data-box">
@@ -145,27 +167,23 @@
                                 <i class="icon-box-arrow fas fa-chevron-right beschr"></i>
                                 <i class="icon-box-cross fas fa-times beschr invisible"></i>
                             </div>
-
                         </div>
                         <div class="daten-icon beschr">
                             <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1646776905/thumbnail_14_nufqdb.png"
                                 alt="car icon">
                         </div>
                         <div class="technische-daten beschr collapsed">
-                            <!--                     !!  -->
                             <img class="hidden beschr"
                                 src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642452500/thumbnail_dfhs8a.png"
                                 alt="car icon">
                             <div class="slide-in-data beschr">
-                                <P> <span class="model-name">Der DFSK - {{ produkt['modell'] }}</span>
+                                <p> <span class="model-name">Der DFSK - {{ produkt['modell'] }}</span>
                                     {{ produkt['beschreibung'] }}
-                                </P>
+                                </p>
                                 <h5>Austattung</h5>
                                 <hr>
-                                ABDECKENESSEN
 
                                 {% set ausstattungen = produkt['serienausstattung'] %}
-
                                 {% for ausstattung in ausstattungen %}
 
                                     {% if loop.index == loop.length %}
@@ -176,21 +194,13 @@
 
                                 {% endfor %}
 
-
-                                <!-- <span>ABS</span> ,
-                                <span>Fahrerairbag</span> ,
-                                <span>Beifahrerairbag</span> ,
-                                <span>Lichtsensor</span> ,
-                                <span>Kindersicherung</span> ,
-                                <span>Reifendruckkontrollsystem</span> ,
-                                <span> USB/Aux/Bluetooth</span> -->
                             </div>
                         </div>
                     </div>
+                    <!-- Empty Div -->
                     <div></div>
                 </div>
-
-
+                <!-- Technische Data Boxes  -->
                 <div class="popup-main-data-cont tech">
                     <!-- Car Data -->
                     <div class="popup-car-data data-box">
@@ -201,8 +211,8 @@
                                 <i class="icon-box-arrow tech fas fa-chevron-right"></i>
                                 <i class="icon-box-cross tech fas fa-times invisible"></i>
                             </div>
-
                         </div>
+                        <!-- Tech Icon -->
                         <div class="daten-icon tech">
                             <img src="https://res.cloudinary.com/dxcrd5sos/image/upload/v1642452500/thumbnail_dfhs8a.png"
                                 alt="tech icon">
@@ -430,12 +440,6 @@
                                     </div>
                                 {% endif %}
 
-
-
-                                
-                                
-                                
-
                                 {% if produkt['technische_daten']['verbrauch'] %}
                                     <div class="data">
                                         <div class="data-l">Verbrauch</div>
@@ -444,9 +448,9 @@
                                 {% endif %}
                                 
                             </div>
-
                         </div>
                     </div>
+                    <!-- Empty Div -->
                     <div></div>
                 </div>
                 <div class="popup-main-data-cont size">
@@ -553,18 +557,17 @@
                                     </div>
                                 {% endif %}
 
-                                
-
                             </div>
                         </div>
                     </div>
+                    <!-- Empty Div -->
                     <div></div>
                 </div>
             </div>
         </div>
-
     </div>
 
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/produkt.js') }}"></script>
 
 {% endblock %}

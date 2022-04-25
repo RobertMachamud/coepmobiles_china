@@ -35,7 +35,7 @@ const toggleSlideInMenu = () => {
     menuSecndLine.classList.toggle("to-cross");
     menuLastLine.classList.toggle("to-cross");
     
-    // slides menu
+    // toggles the menu
     if (slideMenuOpen) {
         slideInMenuBg.classList.add("d-none");
         slideInMenu.classList.remove("slide-ani");
@@ -52,6 +52,7 @@ const toggleSlideInMenu = () => {
 // Toggles About Container
 const toggleAboutCont = () => {
     aboutCont.classList.toggle("extended");
+    // flips the icon
     if (aboutCont.classList.contains("extended")) {
         showMoreBtn.classList.add("flip");
     } else {
