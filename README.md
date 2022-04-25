@@ -1,11 +1,11 @@
 <h1 align="center">
-  :car: New-Coep / Alternative Aus China
+  :car: New-Cöp / DFSK :car:
 </h1>
 
   This is a website where users can look for DFSK cars.
   DFSK is a chinese car brand - they want to sell their cars on the german market so they are making collaborations with german car workshops to sell their products trough them - without the need to open up/rent a store.
-  The main porpouse is to inform the custumors from Cpmobiles/New-Cp about their alternative cars from china (DFSK).
-  <a href="https://www.coepmobiles.de/">Coep Mobiles ('parent website')</a>
+  The main porpouse is to inform the custumors from Cöpmobiles/New-Cöp about their alternative cars from china (DFSK).
+  <a href="https://www.coepmobiles.de/">Cöp Mobiles ('parent website')</a>
   
 
 <p align="center">
@@ -27,21 +27,33 @@
 
   - First Time Visitor Goals
       1. As a first time visitor, I want to have a good overview of the content and I want to quickly understand the main purpose of the site.
+
       2. As a first time visitor, I want to be able to navigate easily through all the different sections/pages without any complications.
+
       3. As a first time visitor, I want to be able to interact with the content.
+
       4. As a first time visitor, I want to get all information about the cars that I need - like prices, images, technical data etc.
+
       5. As a first time visitor, I want to easily find a way to get in touch - telephone/email/address.
+
       6. As a first time visitor, I want to easily filter the products/cars by category (suv/truck/electro).
+
       7. As a first time visitor, I want to get all information about the team/company.
+
 
   - Returning Visitor Goals
       1. As a returning visitor, I want to easily reread all the information I want/need.
+
       2. As a returning visitor, I want to check the contact data again (tel, location, etc).
+
       3. As a returning visitor, I want to ask for a test drive or to make an appointment.
+
       4. As a returning visitor, I want to check if there are any updates (new cars, prices, offers, etc).
+
 
   - Frequent User Goals
       1. As a frequent user, I want to stay up-to-date.
+
       2. As a frequent user, I want to discover more/new cars.
  
 
@@ -106,9 +118,9 @@
     - Autoprefixer was used to make sure that no prefixes are missing.
 7. <a href="https://www.freeformatter.com/html-formatter.html#ad-output">Freeformatter:</a> 
     - Freeformatter was used for testing the HTML-format.
-8. - <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask:</a> 
+8. <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask:</a> 
     - Flask was used to avoid repitition and to make coding easier and cleaner.
-9. - <a href="https://swiperjs.com/">Swiper Js:</a> 
+9. <a href="https://swiperjs.com/">Swiper Js:</a> 
     - Swiper Js was used to make it easier and shorter/cleaner to swipe images (generel image slider). 
 
 
@@ -125,9 +137,9 @@ The Freeformatter, W3C CSS Validator Services, and Autoprefixer and were used to
   - First Time Visitor Goals
 
     1. As a first time visitor, I want to have a good overview of the content and I want to quickly understand the main purpose of the site.
-        2. The langing page background image shows one of the DFSK cars drifting in a valley/desert and the headline says 'for sale' so the user can quickly understand that the site is about selling cars.
-        3. By clicking at the button 'go to products' the page scrolls to the product section where the purpouse of the site becomes clear.
-        4. A minimalistic and simple design should make the purpouse clear and easy understadeble.
+        1. The langing page background image shows one of the DFSK cars drifting in a valley/desert and the headline says 'for sale' so the user can quickly understand that the site is about selling cars.
+        2. By clicking at the button 'go to products' the page scrolls to the product section where the purpouse of the site becomes clear.
+        3. A minimalistic and simple design should make the purpouse clear and easy understadeble.
 
     2. As a first time visitor, I want to be able to navigate easily through all the different sections/pages without any complications.
         1. The site has been designed to be fluid and easy accesseble one page design.
@@ -154,16 +166,14 @@ The Freeformatter, W3C CSS Validator Services, and Autoprefixer and were used to
         1. There are 3 icons - the user just has to click on one of them to filter all products by that category.
 
     7. As a first time visitor, I want to get all information about the team/company.
-        1. The about us section on the landing page (navigation link - 'Über Uns') has a short description about the company and the collaboration (New-Coep - DFSK).
+        1. The about us section on the landing page (navigation link - 'Über Uns') has a short description about the company and the collaboration (New-Cöp - DFSK).
         2. By expanding the about us section the user can get information about the team (i.e. the owner, team, ...).
 
 
   - Returning Visitor Goals
 
     1. As a returning visitor, I want to easily reread all the information I want/need.
-
         1. All informations are easy to find by simply using the navigation links.
-
 
     2. As a returning visitor, I want to check the contact data again (tel, location, etc).
         1. The user can simply click on the 'Kontakt / Info' navigation link or (on smaller devices) the 'location icon'.
@@ -179,10 +189,10 @@ The Freeformatter, W3C CSS Validator Services, and Autoprefixer and were used to
   - Frequent User Goals
     
     1. As a frequent user, I want to stay up-to-date.
-      1. Changes on the site could happen anytime. By checking in from time to time keeps the frequent user up-to-date.
+        1. Changes on the site could happen anytime. By checking in from time to time keeps the frequent user up-to-date.
 
     2. As a frequent user, I want to discover more/new cars.
-      1. Like mentioned before - there might be a newsletter feature to .
+        1. Like mentioned before - there might be a newsletter feature to .
 
 
 
@@ -195,7 +205,7 @@ The Freeformatter, W3C CSS Validator Services, and Autoprefixer and were used to
 
 
 ## Known Bugs
-  - Description text behaves weird by resizing the site.
+  - Description text on the product site behaves weirdly by resizing the site (transition).
 
 # Deployment
 
@@ -251,10 +261,10 @@ Click <a href="https://help.github.com/en/github/creating-cloning-and-archiving-
 
 
 ## Acknowledgements
-  - Samuel Maxted for his amazing work!
+  - Samuel Maxted for his amazing work! :trophy:
 
 ## Note
-  - There is no '<- return back to the landing page' button on the product site any more (didn't look good).
+  - There is no 'return back to the landing page' button on the product site any more (didn't look good).
 
 
 
